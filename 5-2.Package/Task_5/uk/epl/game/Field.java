@@ -33,5 +33,8 @@ public class Field {
     }
 
     public void stop() {
+        for (Player p: players){
+            p.setPosition(0,0);
+        }
     }
 }
