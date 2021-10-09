@@ -17,9 +17,6 @@ public class Field {
             if (p.getJerseyNumber()==choosePlayer) p.moveUp();
         }
     }
-    public void moveDown(int choosePlayer) {} //이거 없으니까 컴파일이 안돼서 추가했습니다.
-    public void moveLeft(int choosePlayer) {} //이거 없으니까 컴파일이 안돼서 추가했습니다.
-    public void moveRight(int choosePlayer) {} //이거 없으니까 컴파일이 안돼서 추가했습니다.
 
     public void start() {
         for (Player p: players){
