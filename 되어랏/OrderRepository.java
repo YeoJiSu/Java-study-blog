@@ -34,8 +34,6 @@ public class OrderRepository implements Iterator<Order> {
         // 이게 더 속도 빠름.
         String out = String.format("--- 주문 관리자 화면 ---\n현재 주문수는 총 %d 입니다.\n", orders.size() - index);
 
-        sb.append("world");
-
         out = out + "\n<주문 내역>\n";
 
         for (int i = index; i < orders.size(); i++) {
