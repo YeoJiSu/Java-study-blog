@@ -1,5 +1,8 @@
 public abstract class Beverage {
-    enum SIZE {TALL, GRANDE, VENTI}
+    enum SIZE {
+        TALL, GRANDE, VENTI
+    }
+
     String name;
     int basePrice;
     SIZE size;
@@ -11,11 +14,13 @@ public abstract class Beverage {
     }
 
     public int getPrice() {
+
         return basePrice;
     }
 
     @Override
     public String toString() {
-        return "name=" + name + ", Price=" + getPrice() + ", size=" + size.name() ;
+
+        return "name=" + name + ", Price=" + getPrice() + ", size=" + size.name();
     }
 }

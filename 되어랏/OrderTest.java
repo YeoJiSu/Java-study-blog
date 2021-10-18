@@ -1,5 +1,6 @@
 public class OrderTest {
     static PickUpFactory pickUpFactory = new PickUpFactory();
+
     public static void main(String[] args) {
         OrderRepository orderRepository = new OrderRepository();
 
@@ -7,19 +8,20 @@ public class OrderTest {
         orderRepository.add(makeOrderForDriveThru());
         orderRepository.add(makeOrderForTakeOut());
 
-        while(orderRepository.hasNext()) {
+        while (orderRepository.hasNext()) {
             System.out.println(orderRepository);
             Order order = orderRepository.next();
             if (order == null) break;
             order.completed();
         }
     }
+
     private static Order makeOrderForTakeOut() {
         Order order = new Order();
         Order.PickUp pickUp = pickUpFactory.makeTakeOut();
         order.setPickUp(pickUp);
-        order.addItem(new OrderItem(new Teavana("Chamomile"), 1)) ;
-        order.addItem(new OrderItem(new Coffee("Americano"), 1)) ;
+        order.addItem(new OrderItem(new Teavana("Chamomile"), 1));
+        order.addItem(new OrderItem(new Coffee("Americano"), 1));
         return order;
     }
 
@@ -27,7 +29,7 @@ public class OrderTest {
         Order order = new Order();
         Order.PickUp pickUp = pickUpFactory.makeDriveThru("001가0000");
         order.setPickUp(pickUp);
-        order.addItem(new OrderItem(new Coffee("Americano"), 2)) ;
+        order.addItem(new OrderItem(new Coffee("Americano"), 2));
         return order;
     }
 
@@ -35,8 +37,8 @@ public class OrderTest {
         Order order = new Order();
         Order.PickUp pickUp = pickUpFactory.makeDelivery("Pusan National University");
         order.setPickUp(pickUp);
-        order.addItem(new OrderItem(new Blended("MangoBanana"), 1)) ;
-        order.addItem(new OrderItem(new Coffee("Americano"), 1)) ;
+        order.addItem(new OrderItem(new Blended("MangoBanana"), 1));
+        order.addItem(new OrderItem(new Coffee("Americano"), 1));
         return order;
     }
 }
