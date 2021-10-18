@@ -28,12 +28,19 @@ public class Order {
     }
 
     public void completed() {
-        this.orderCounter++;
+        orderCounter = orderCounter + 1;
         pickUp.handle(this);
     }
 
     @Override
     public String toString() {
+        // order item toString 이 호출되는 수가 주문 횟수라 판단 가능함.
+        orderNo += 1;
         return items.toString();
     }
+
+    public int getCounter() {
+        return orderNo;
+    }
+
 }

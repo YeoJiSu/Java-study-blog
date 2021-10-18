@@ -44,7 +44,7 @@ public class OrderRepository implements Iterable<Order> {
         builder.append("--- 주문 관리자 화면 ---");
         builder.append(System.getProperty("line.separator"));
         builder.append(System.getProperty("line.separator"));
-        builder.append("현재 주문수는 ").append(orders.size()).append(" 입니다.");
+        builder.append("현재 주문수는 총 ").append(orders.size()).append(" 입니다.");
         builder.append(System.getProperty("line.separator"));
         builder.append(System.getProperty("line.separator"));
         builder.append("< 주문 내역 >");

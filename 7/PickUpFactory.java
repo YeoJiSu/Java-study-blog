@@ -49,12 +49,12 @@ public class PickUpFactory {
 
         @Override
         public void handle(Order o) {
-            System.out.printf(String.valueOf(o));
             StringBuilder builder = new StringBuilder();
             builder.append("--- 테이크 아웃 화면 ---");
             builder.append(System.getProperty("line.separator"));
             builder.append(System.getProperty("line.separator"));
             builder.append("주문번호: ");
+            builder.append(o.getCounter());
             builder.append(System.getProperty("line.separator"));
             builder.append("주문하신 음료가 준비 되었습니다!");
             builder.append(System.getProperty("line.separator"));
