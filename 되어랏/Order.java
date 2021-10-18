@@ -7,15 +7,17 @@ public class Order {
     private static int orderCounter = 1; // 총 주문 수?
     private int orderNo;
 
+    private PickUp pick;
     //개발 셋째날, 고객 주문한 주문 내용 저장
     //여기 밑에 함수 구현한게 맞는지 모르겠음 ....
     public void completed() {
         orderCounter = 0;
+        this.pick.handle(this);
     }
 
     public void setPickUp(PickUp pickUp) {
         // 여기도 어떻게 구현할지 막막....
-        pickUp.handle(this);
+        this.pick = pickUp;
     }
 
     public void addItem(OrderItem order) {
