@@ -28,7 +28,8 @@ public class Order {
     }
 
     public void completed() {
-        orderCounter = orderCounter + 1;
+        // orderCounter 는 뭐에 쓰는 애인고?..
+        orderCounter += 1;
         pickUp.handle(this);
     }
 
