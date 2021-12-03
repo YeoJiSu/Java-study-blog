@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+    <persistence-unit name="pnu.cse">
+        <class>XXXX.Player</class>
+        <class>XXXX.Player2</class>
+        <class>XXXX.Club</class>
+        <class>XXXX.Country</class>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+<!-- file: 뒤에 h2 데이터베이스가 위치한 절대경로 넣어줘야함 !-->
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:file:/Users/yeojisu/IdeaProjects/db/src/main/resources/db.mv.db"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.use_sql_comments" value="true" />
+<!--            <property name="hibernate.hbm2ddl.auto" value="update" />-->
+            <property name="hibernate.id.new_generator_mappings" value="true" />
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+        </properties>
+    </persistence-unit>
+</persistence>
