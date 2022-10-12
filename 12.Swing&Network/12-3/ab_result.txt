@@ -1,0 +1,49 @@
+This is ApacheBench, Version 2.3 <$Revision: 1879490 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)...apr_socket_recv: Connection reset by peer (54)
+Total of 41 requests completed
+ ✘ yeojisu@yeojisuui-MacBookAir  ~/Desktop/new/blueberry_api   feat/article-controller  ab -n 100 -c 10 http://127.0.0.1:8080/api/hello
+This is ApacheBench, Version 2.3 <$Revision: 1879490 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient).....done
+
+
+Server Software:        
+Server Hostname:        127.0.0.1
+Server Port:            8080
+
+Document Path:          /api/hello
+Document Length:        14 bytes
+
+Concurrency Level:      10
+Time taken for tests:   100.977 seconds
+Complete requests:      100
+Failed requests:        0
+Total transferred:      13400 bytes
+HTML transferred:       1400 bytes
+Requests per second:    0.99 [#/sec] (mean)
+Time per request:       10097.700 [ms] (mean)
+Time per request:       1009.770 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.13 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       1
+Processing:  1016 9540 1851.3  10080   10105
+Waiting:     1013 9539 1851.5  10078   10104
+Total:       1017 9540 1851.2  10080   10105
+
+Percentage of the requests served within a certain time (ms)
+  50%  10080
+  66%  10083
+  75%  10086
+  80%  10089
+  90%  10095
+  95%  10100
+  98%  10105
+  99%  10105
+ 100%  10105 (longest request)
