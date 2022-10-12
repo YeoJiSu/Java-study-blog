@@ -1,18 +1,17 @@
-
 public class OrderTest {
     static PickUpFactory pickUpFactory = new PickUpFactory();
 
     public static void main(String[] args) {
         OrderRepository orderRepository = new OrderRepository();
+
         orderRepository.add(makeOrderForDelivery());
         orderRepository.add(makeOrderForDriveThru());
         orderRepository.add(makeOrderForTakeOut());
+
         while (orderRepository.hasNext()) {
             System.out.println(orderRepository);
             Order order = orderRepository.next();
-            if (order == null) {
-                break;
-            }
+            if (order == null) break;
             order.completed();
         }
     }
@@ -28,7 +27,7 @@ public class OrderTest {
 
     private static Order makeOrderForDriveThru() {
         Order order = new Order();
-        Order.PickUp pickUp = pickUpFactory.makeDriveThru("001 가 0000");
+        Order.PickUp pickUp = pickUpFactory.makeDriveThru("001가0000");
         order.setPickUp(pickUp);
         order.addItem(new OrderItem(new Coffee("Americano"), 2));
         return order;

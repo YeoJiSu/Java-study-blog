@@ -1,63 +1,46 @@
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Spliterator;
-import java.util.function.Consumer;
 
-public class OrderRepository implements Iterable<Order> {
-    private List<Order> orders = new ArrayList<>();
+//구현하기
+public class OrderRepository implements Iterator<Order> {
+    List<Order> orders = new ArrayList<>();
+    private int index = 0;
 
-    private int index = 1;
+    public void add(Order makeOrderForSome) {
 
-    void add(Order order) {
-        orders.add(order);
+        orders.add(makeOrderForSome);
     }
 
     @Override
-    public Iterator<Order> iterator() {
-        return orders.iterator();
-    }
-
-    @Override
-    public void forEach(Consumer<? super Order> action) {
-        Iterable.super.forEach(action);
-    }
-
-    @Override
-    public Spliterator<Order> spliterator() {
-        return Iterable.super.spliterator();
-    }
-
     public boolean hasNext() {
-        return orders.size() > 0;
-    }
-
-    public Order next() {
-        index++;
-        return orders.remove(0);
+        if (index < orders.size()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("--- 주문 관리자 화면 ---");
-        builder.append(System.getProperty("line.separator"));
-        builder.append(System.getProperty("line.separator"));
-        builder.append("현재 주문수는 총 ").append(orders.size()).append(" 입니다.");
-        builder.append(System.getProperty("line.separator"));
-        builder.append(System.getProperty("line.separator"));
-        builder.append("< 주문 내역 >");
-        builder.append(System.getProperty("line.separator"));
-        for (int i = 0; i < orders.size(); i++) {
-            builder.append("주문번호: ")
-                    .append(i + index)
-                    .append(" - ")
-                    .append(orders.get(i).toString());
-            builder.append(System.getProperty("line.separator"));
-        }
-        builder.append(System.getProperty("line.separator"));
+    public Order next() {
+        Order order = orders.get(index++);
+        return order;
+    }
 
-        return builder.toString();
+
+    public String toString() {
+        // 어거지로 한느낌이 있긴한데... 사실 잘 몰겠음
+        // StringBuffer sb = new StringBuffer("hello");
+        // 이게 더 속도 빠름.
+        String out = String.format("--- 주문 관리자 화면 ---\n현재 주문수는 총 %d 입니다.\n", orders.size() - index);
+
+        out = out + "\n<주문 내역>\n";
+
+        for (int i = index; i < orders.size(); i++) {
+            out = out + String.format("주문번호: %d - %s\n", i + 1, orders.get(i));
+        }
+
+        return out;
+
     }
 }

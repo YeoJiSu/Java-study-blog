@@ -1,47 +1,61 @@
-
 import java.util.ArrayList;
 import java.util.List;
 
+//구현하기
 public class Order {
+    private List<OrderItem> items = new ArrayList<>();
+    private static int orderCounter = 1; // 총 주문 수?
+    private int orderNo;
 
+    private PickUp pick;
+    //개발 셋째날, 고객 주문한 주문 내용 저장
+    //여기 밑에 함수 구현한게 맞는지 모르겠음 ....
+    public void completed() {
+        orderCounter = 0;
+        this.pick.handle(this);
+    }
+
+    public void setPickUp(PickUp pickUp) {
+        // 여기도 어떻게 구현할지 막막....
+        this.pick = pickUp;
+    }
+
+    public void addItem(OrderItem order) {
+        orderCounter++;
+        items.add(order);
+    }
+
+    public String toString() {
+        return items.toString();
+    }
+
+
+    //개발 넷째날, 고객 음료 픽업
     private Order.PickUp delivery;
 
     public static interface PickUp {
         public abstract void handle(Order o);
     }
 
-    private List<OrderItem> items = new ArrayList<>();
-
-    private PickUp pickUp;
-
-    private static int orderCounter = 1;
-
-    private int orderNo;
-
-    public void addItem(OrderItem orderItem) {
-
-        items.add(orderItem);
+    //구현
+    class Delivery implements Order.PickUp {
+        @Override
+        public void handle(Order o) {
+        }
     }
 
-    public void setPickUp(PickUp pickUp) {
-        this.pickUp = pickUp;
+    class DriveThru implements Order.PickUp {
+        @Override
+        public void handle(Order o) {
+
+        }
     }
 
-    public void completed() {
-        // orderCounter 는 뭐에 쓰는 애인고?..
-        orderCounter += 1;
-        pickUp.handle(this);
-    }
+    class TakeOut implements Order.PickUp {
+        @Override
+        public void handle(Order o) {
 
-    @Override
-    public String toString() {
-        // order item toString 이 호출되는 수가 주문 횟수라 판단 가능함.
-        orderNo += 1;
-        return items.toString();
-    }
-
-    public int getCounter() {
-        return orderNo;
+        }
     }
 
 }
